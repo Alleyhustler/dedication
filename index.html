@@ -1,149 +1,141 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
-    <style>
-        body {
-            background-color: #000;
-            color: #e28eb3;
-            font-family: 'Courier New', monospace;
-            padding: 20px;
-            max-width: 100%;
-            margin: 0;
-
-        }
-        .container {
-            max-width: 1200px;
-        }
-        .ascii-art {
-            white-space: pre;
-            font-size: 8px;
-            margin: 20px 0;
-            color: #e28eb3;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            animation-delay: 0.5s;
-        }
-        .ascii-art-2 {
-            white-space: pre;
-            font-size: 16px;
-            margin: 20px 0;
-            color: #e28eb3;
-            opacity: 0;
-            animation: fadeIn 2s forwards;
-            animation-delay: 0.5s;
-        }
-        a {
-            color: #e28eb3;
-            text-decoration: none;
-        }
-        a:hover {
-            background-color: #e28eb3;
-            color: #000;
-        }
-        .prompt {
-            color: #e28eb3;
-            overflow: hidden;
-            white-space: nowrap;
-            border-right: 2px solid #e28eb3;
-            width: 0;
-            animation: typing 2s steps(40, end) forwards,
-                       blink-caret 0.75s step-end infinite;
-        }
-        .prompt::before {
-            content: "░░░░";
-            margin-right: 10px;
-        }
-        .links {
-            margin-left: 20px;
-        }
-        .links a {
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #e28eb3 }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* Delay animations for different elements */
-        .prompt:nth-child(1) { animation-delay: 4.5s; }
-        .prompt:nth-child(2) { animation-delay: 4.5s; }
-        .prompt:nth-child(3) { animation-delay: 4.5s; }
-        .links a:nth-child(1) { animation-delay: 1.5s; }
-        .links a:nth-child(2) { animation-delay: 1.7s; }
-        .links a:nth-child(3) { animation-delay: 1.9s; }
-        .links a:nth-child(4) { animation-delay: 1.1s; }
-        
-        /* Status section */
-        .status {
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            animation-delay: 8s;
-        }
-        
-        /* Custom cursor effect */
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: #e28eb3;
-            margin-left: 5px;
-            animation: cursor-blink 1s infinite;
-        }
-        @keyframes cursor-blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-    </style>
-
-<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DEVIL</title>
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<style>
+    body {
+        background-color: #000;
+        color: #ffffff;
+        font-family: 'Courier New', monospace;
+        padding: 20px;
+        max-width: 100%;
+        margin: 0;
+    }
+    .container {
+        max-width: 1200px;
+    }
+    /* UPDATED: CSS for the Logo Image container */
+    .ascii-art {
+        margin: 20px 0;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: 0.5s;
+    }
+    /* NEW: Ensure the logo fits and scales */
+    .ascii-art img {
+        max-width: 100%; /* Responsive width */
+        width: 300px;    /* Default width - adjust this number as needed */
+        height: auto;
+        display: block;
+    }
+    .ascii-art-2 {
+        white-space: pre;
+        font-size: 16px;
+        margin: 20px 0;
+        color: #ffffff;
+        opacity: 0;
+        animation: fadeIn 2s forwards;
+        animation-delay: 0.5s;
+        overflow-x: auto; /* Adds scroll if text is too wide on mobile */
+    }
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    a:hover {
+        background-color: #ffffff;
+        color: #000;
+    }
+    .prompt {
+        color: #ffffff;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid #ffffff;
+        width: 0;
+        animation: typing 2s steps(40, end) forwards,
+                   blink-caret 0.75s step-end infinite;
+    }
+    .prompt::before {
+        content: "░░░░";
+        margin-right: 10px;
+    }
+    .links {
+        margin-left: 20px;
+    }
+    .links a {
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+    }
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+    }
+    @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #ffffff }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* Delay animations for different elements */
+    .prompt:nth-child(1) { animation-delay: 4.5s; }
+    .prompt:nth-child(2) { animation-delay: 4.5s; }
+    .prompt:nth-child(3) { animation-delay: 4.5s; }
+    .links a:nth-child(1) { animation-delay: 1.5s; }
+    .links a:nth-child(2) { animation-delay: 1.7s; }
+    .links a:nth-child(3) { animation-delay: 1.9s; }
+    .links a:nth-child(4) { animation-delay: 1.1s; }
+    
+    /* Status section */
+    .status {
+        margin-top: 40px;
+        opacity: 0;
+        animation: fadeIn 1s forwards;
+        animation-delay: 8s;
+    }
+    
+    /* Custom cursor effect */
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 16px;
+        background: #ffffff;
+        margin-left: 5px;
+        animation: cursor-blink 1s infinite;
+    }
+    @keyframes cursor-blink {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+    }
+</style>
 </head>
 <body>
     <div class="container">
+        
+        <!-- REPLACED ASCII ART WITH IMAGE -->
         <div class="ascii-art">
-            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣦⣀⠀⠀⢀⣴⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⢀⣿⡿⠟⠛⠛⠻⢿⣿⡄⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠈⢷⣦⣤⣤⡾⠋⠀⣴⣾⣷⣦⠀⠙⢿⣦⣤⣤⣾⠃⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠘⣿⣿⠟⠀⠀⢸⣿⣿⣿⣿⡇⠀⠀⠹⣿⣿⡏⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⣀⣴⣿⡏⠀⠀⠀⠘⢿⣿⣿⡿⠃⠀⠀⠀⠹⣿⣷⣀⠀⠀⠀⠀⠀
-            ⠀⠀⠲⣾⣿⣿⣿⣿⠀⠀⠀⢀⣤⣾⣿⣿⣷⣦⡀⠀⠀⠀⢿⣿⣿⣿⣿⠖⠂⠀
-            ⠀⠀⠀⠈⠙⢿⣿⡇⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⡀⠀⠀⢸⣿⣿⠟⠁⠀⠀⠀
-            ⠀⠀⠀⠀⠀⢨⣿⡇⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠘⣿⣏⠀⠀⠀⠀⠀
-            ⠀⠀⠀⢀⣠⣾⣿⡇⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢰⣿⣿⣦⡀⠀⠀⠀
-            ⠀⠀⠺⠿⢿⣿⣿⣇⠀⠀⠘⠛⣿⣿⣿⣿⣿⣿⠛⠃⠀⠀⢸⣿⣿⡿⠿⠗⠂⠀
-            ⠀⠀⠀⠀⠀⠈⠻⣿⡀⠀⠀⠀⢹⣿⣿⣿⣿⣿⠀⠀⠀⠀⣿⡿⠉⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⢠⣿⣧⠀⠀⠀⢸⣿⣿⣿⣿⡏⠀⠀⠀⣼⣿⡇⠀⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⣠⣾⣿⣿⣧⡀⠀⢸⣿⣿⣿⣿⡇⠀⠀⣼⣿⣿⣿⣄⠀⠀⠀⠀⠀
-            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠓⠀⠘⠛⠛⠛⠛⠃⠀⠚⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀                           
-                                                                         
-</div>
+            <img src="logo.png" alt="Devil Logo">
+        </div>
+
 <div class="container-1">
     <div class="ascii-art-2">
-oooooooooo.                   .o8   o8o                          .    o8o                        
-`888'   `Y8b                 "888   `"'                        .o8    `"'                        
- 888      888  .ooooo.   .oooo888  oooo   .ooooo.   .oooo.   .o888oo oooo   .ooooo.  ooo. .oo.   
- 888      888 d88' `88b d88' `888  `888  d88' `"Y8 `P  )88b    888   `888  d88' `88b `888P"Y88b  
- 888      888 888ooo888 888   888   888  888        .oP"888    888    888  888   888  888   888  
- 888     d88' 888    .o 888   888   888  888   .o8 d8(  888    888 .  888  888   888  888   888  
-o888bood8P'   `Y8bod8P' `Y8bod88P" o888o `Y8bod8P' `Y888""8o   "888" o888o `Y8bod8P' o888o o888o 
-                                                                                                 
+  ______   ______ _     _____ 
+ / ___\ \ / / ___| |   | ____|
+| |    \ V / |   | |   |  _|  
+| |___  | || |___| |___| |___ 
+ \____| |_| \____|_____|_____|                                                                                             
                                                                                                  
                                                                                                        
 </div>
 
-        <div class="prompt">Not an addiction...DEDICATION</div>
+        <div class="prompt">Not an addiction...cycle</div>
         <br>
-        <div class="prompt">Decentralized Dedication .</div>
+        <div class="prompt">Decentralized cycle .</div>
         <div class="prompt">ca: HERE </div>
         <div class="links">
             <a href="horny.com">> CASTORTROY.TXT</a><br>
@@ -159,16 +151,19 @@ o888bood8P'   `Y8bod8P' `Y8bod88P" o888o `Y8bod8P' `Y888""8o   "888" o888o `Y8bo
         <br>
         <div class="prompt">HORNY DEVIL PROTOCOLS:</div>
         <div class="links">
-            <a href="https://x.com/devil_horny__">> X</a><br>
-            <a href="https://pump.fun/profile/AJ6uoxvjrihHzwYHJQmRiGk9qsx96ymu8fktUzhgR7Ng">> Pumpfun</a><br>
-            <a href="https://t.me/dedicationncoin">> Telegram</a><br>
+            <a href="https://x.com/notaddictionSOL">> X</a><br>
+            <a href="https://pump.fun/profile/2DFesPvUcAMkzA5aHSjWK2XZZDbm2KU4s3asdQNmDqcs">> Pumpfun</a><br>
         </div>
 
     </div>
 
     <script>
         function updateMemory() {
+            // Note: The element .memory-value does not exist in the HTML provided,
+            // so this script won't show anything unless you add <span class="memory-value">319</span> somewhere.
             const memoryElement = document.querySelector('.memory-value');
+            if (!memoryElement) return; // Prevents errors if element is missing
+
             const baseValue = 319;
             
             setInterval(() => {
@@ -198,4 +193,5 @@ o888bood8P'   `Y8bod8P' `Y8bod88P" o888o `Y8bod8P' `Y888""8o   "888" o888o `Y8bo
         // Start the animation after the initial delay for the status section
         setTimeout(updateMemory, 8000);
     </script>
-</body></html>
+</body>
+</html>
